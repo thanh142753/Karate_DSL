@@ -2,14 +2,16 @@ Feature: Articles
 
     Background: Base URL
         Given url 'https://conduit-api.bondaracademy.com/api/'
-
-    @getToken-createAricles-deleteArticle
-    Scenario: get Token
+        # Get token
         Given path 'users/login'
         And request {"user":{"email":"thanh142@gmail.com","password":"123456"}}
         When method post
         Then status 200
         * def token = response.user.token
+
+
+    @CreateAricles-DeleteArticle-Verify
+    Scenario: 
         # Create article
         Given header Authorization = 'Token ' + token
         Given path 'articles'
